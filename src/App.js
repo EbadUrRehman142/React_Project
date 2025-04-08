@@ -4,6 +4,7 @@ import { useState } from "react";
 import Home from "./Home";
 import About from "./About";
 import Products from "./Products";
+import Register from "./MultiStepRegistration.js";
 import Cart from "./Cart";
 import Login from "./Login";
 import { AuthProvider, useAuth } from "./AuthContext";  // Assuming AuthContext is already created
@@ -18,7 +19,7 @@ function AppContent() {
   };
 
   // Path where header/footer should be hidden
-  const hideNavbarRoutes = ["/Login"];
+  const hideNavbarRoutes = ["/Login","/register"];
   const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
   // Redirect to home if user is logged in and visiting login page
@@ -53,6 +54,7 @@ function AppContent() {
       {/* Main Content */}
       <main className="content">
         <Routes>
+        <Route path="/register" element={<Register />} /> {/* Yeh new route */}
           <Route path="/login" element={<Login />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/about" element={<About />} />
