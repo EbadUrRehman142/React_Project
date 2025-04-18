@@ -1,0 +1,42 @@
+name: Deploy React App to Supabase Hosting
+
+on:
+  push:
+    branches:
+      - main # Trigger the workflow on push to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run tests (Optional)
+      - name: Run tests
+        run: npm test --if-present
+
+      # Step 5: Build React app
+      - name: Build React App
+        run: npm run build
+
+      # Step 6: Deploy to Supabase Hosting
+      - name: Deploy to Supabase Hosting
+        uses: supabase/supabase-action@v1.0.1
+        with:
+          supabase_url: ${{ secrets.SUPABASE_URL }}
+          supabase_api_key: ${{ secrets.SUPABASE_API_KEY }}
+          project_ref: your-project-ref # Optional: project reference, if needed
+          build_directory: build # Specify the build directory (default is "build")
