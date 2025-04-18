@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to Supabase Hosting
         uses: supabase/supabase-action@v1.0.1
         with:
-          supabase_url: ${{ secrets.SUPABASE_URL }}
-          supabase_api_key: ${{ secrets.SUPABASE_API_KEY }}
+          supabase_url: ${{ secrets.https://sspjufzljtmqkmtgfhtx.supabase.co }}
+          supabase_api_key: ${{ secrets.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNzcGp1ZnpsanRtcWttdGdmaHR4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM4NDcxNjksImV4cCI6MjA1OTQyMzE2OX0.sCxcJDBgM-tbyPpY4CDzU6UHC4zuDDYhL6fTjfLdty4 }}
           project_ref: your-project-ref # Optional: project reference, if needed
           build_directory: build # Specify the build directory (default is "build")
